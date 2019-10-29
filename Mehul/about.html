@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Hotel Site - you're welcome!">
+    <meta name="keywords" content="hotel, city, stay, accommodation, lodging">
+    <link href="style.css" rel="stylesheet">
+    <link href="mobile.css" rel="stylesheet" media="screen and (max-width: 768px)">
+    <title>Hall Booking</title>
+    <style>
+        .nav-btn {
+            display: none;
+        }
+        .nav-check{
+            display: none;
+        }
+        @media (max-width: 600px){
+            .nav-btn {
+                display: inline-block;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+            }
+            .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+            .nav > .nav-btn > label > span {
+                display: block;
+                width: 25px;
+                height: 10px;
+                border-top: 2px solid #eee;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1 id="logo"><a href="index.html" class="logo">Vihang's Hall</a></h1>
+                <div class="nav-btn">
+                    <label for="nav-check">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                </div>
+                <ul>
+                    <li><a href="index.html" class="nav-links">Home</a></li>
+                    <li><a href="about.html" class="nav-links current">About</a></li>
+                    <li><a href="contact.html" class="nav-links">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="about-info" class="light-background padding-vertically-3">
+        <div class="container">
+            <div class="info-left">
+                <h1>About <span class="text-primary">Hall</span></h1>
+                <p>
+                   Vihang's Banquet Hall, Ghatkopar West, Mumbai is an ideal venue to host your pre-wedding functions like mehendi, sangeet and reception ceremony. Located in Gopal Lane and situated near Old Post Office, this venue is well-connected and easily accessible.   
+                </p>
+                <p>
+                   Vihang's Banquet Hall, Mumbai has a banquet hall for having an intimate function with close family and friends. The gorgeous décor of the venue gives a special touch to your big day. The venue has an inviting ambiance which makes everyone feel welcomed. You can thus sit back and enjoy your important event while all the essentials are beautifully taken care of.
+                </p>
+                <div class="info-right">
+                    <img src="image3.png" alt="image3">
+                    <input type="button" value="Book" id="sub">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-testimonials" class="padding-vertically-3">
+        <div class="">
+	    <br><br>	
+            <h2>Summary</h2>
+            <div class="testimonial">
+                <p class="primary-background">
+		   Plate:<br>                         
+                   Non-veg<br>
+		   Veg<br></br>
+		   Timings and Slot:<br>
+		   Morning : 9:00 AM to 3:00 PM<br>
+		   Evening : 4:00 PM to 10:00 PM	
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="home-footer">
+        <p>Hall &copy; 2019 All Rights Reserved</p>
+    </footer>
+</body>
+</html>

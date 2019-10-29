@@ -1,41 +1,28 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Booking Form</title>
-	<link rel="stylesheet" type="text/css" href="style2.css">
-	<script src="validation.js"></script>
+	<title>Main Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+	<title>Contact Us form</title>
+	<link rel="stylesheet" href="booking_form.css">
 </head>
-	<body>
-		<h1>Booking Form</h1>
-		<div class="book">
-			<h2>Book Here</h2>
-		<form id="book" onsubmit="return booking();">
-			
-			<lable> First Name:</lable>&nbsp;&nbsp;<span style="color: red;" id="message1"></span><br>
-			<input type="text" class="name" name="fname" id="fname"><br><br>
-			<lable> Last Name:</lable>&nbsp;&nbsp;<span style="color: red;" id="message2"></span><br>
-			<input type="text" name="lname" class="name" id="lname"><br><br>
-			<lable> Mobile Number:</lable>&nbsp;&nbsp;<span style="color: red;" id="message3"></span><br>
-			<select id="ph">
-				<option>+91</option>
-				<option>+92</option>
-				<option>+93</option>
-				<option>+94</option>
-				<option>+95</option>
-			</select>
-			<input type="number" name="num" id="num"><br><br>
-			<lable> Address:</lable>&nbsp;&nbsp;<span style="color: red;" id="message4"></span><br>
-			<textarea id="address"></textarea>
-			<!-- <input type="address" name="Address" id="address"> -->
-			<br><br>
-			<lable> Email:</lable>&nbsp;&nbsp;<span style="color: red;" id="message5"></span><br>
-			<input type="text" name="email" id="email"><br><br>
-			<!-- <lable> Password:</lable><br>
-			<input type="password" name="password" id="password"><br><br> -->
-			<!-- <input type="radio" name="male" id="male"><span id="male">&nbsp; Male</span>&nbsp;&nbsp;
-			<input type="radio" name="female" id="female"><span id="female">&nbsp; Female</span>&nbsp;&nbsp;
-			<input type="radio" name="others" id="others"><span id="others">&nbsp; Others</span>&nbsp;&nbsp;<br><br> -->
-			<input type="submit" value="Submit" id="sub">
-		</form>
-		</div>
-	</body>
+<body>
+	
+<div class="wrapper">
+  <div class="contact-form" style="height: 100%">
+    <div class="input-fields">
+      <h1 align="center" style="color: #c5ecfd">Booking Form</h1>
+      <input type="text" class="input" placeholder="First Name">
+      <input type="text" class="input" placeholder="Last Name">
+      <input type="text" class="input" placeholder="Email Address">
+      <input type="number" class="input" placeholder="Phone">
+      <textarea class="input" placeholder="Address"></textarea>
+      <button class="btn">send</button>
+    </div>
+  </div>
+</div>	
+
+
+</body>
 </html>

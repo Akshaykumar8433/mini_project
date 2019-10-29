@@ -13,6 +13,22 @@ html {
     padding: 0 8px;
   }
   
+  .card_container {
+    padding: 20px 14px;
+    text-align: center;
+    line-height: 27px;
+  }
+  
+  .card_container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: grey;
+  }
+
   @media screen and (max-width: 650px) {
     .column {
       width: 80%;
@@ -26,6 +42,7 @@ html {
     }
     .card_container{
       /* text-align: center; */
+      line-height: 32px;
       font-size: 18px;
     }
   }
@@ -41,21 +58,6 @@ html {
   .card {
     box-shadow: 0 4px 8px 0 rgba(149, 233, 236, 0.575);
     height: 450px;
-  }
-  
-  .card_container {
-    /* padding: 0 16px; */
-    text-align: center;
-  }
-  
-  .card_container::after, .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  
-  .title {
-    color: grey;
   }
 /*   
   .button {

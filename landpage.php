@@ -4,36 +4,93 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="icon" type="image/ico" href="images/logo.png" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/our_team.css">
         <link rel="stylesheet" type="text/css" href="css/contact_us.css">
     </head>
-    <body>
+    <body>                                              
         <script>
+            function ajax_call(method,url,data){
+                var request = $.ajax({
+                    url: url,
+                    type: method,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    data: data
+                });
+
+                request.fail(function(jqXHR, textStatus) {
+                    alert( "Request failed: " + textStatus );
+                });
+
+                return request;
+            }
+            function fun_search(){
+                var search_input = $('#search_box').val();
+                // var search_input = document.getElementById('#search_box').value;
+                if(search_input){
+                    var data = {"search_input":search_input};
+                    var formdata=new FormData();
+                    formdata.append('values',JSON.stringify(data));
+                    var request = ajax_call("POST","search_result.php",formdata);
+                    request.done(function(msg){
+                        msg=JSON.parse(msg);
+                        if(msg=="no_result"){
+                            alert("No Result Found");
+                        }else{
+                            window.location=msg;
+                        }
+                    })
+                }
+            }
+            $(window).scroll(function() {
+                var height = $(window).scrollTop();
+                if (height > 100) {
+                    $('#back2Top').fadeIn();
+                } else {
+                    $('#back2Top').fadeOut();
+                }
+            });
             $(document).ready(function(){
                 $("#welcome").fadeIn(3000);
-            });
-            // document.getElementById()
-            // $(".nav-bar a").click(function(event) {
-            //     console.log("Hello");
-            //     // event.preventDefault();
+                $(function() {
+                    $('.page-scroll').click(function(event) {
+                        var $anchor = $(this);
+                        $('html, body').stop().animate({scrollTop: $($anchor.attr('href')).offset().top}, 1500);
+                        $anchor.addClass('active');
+                        event.preventDefault();
+                    });
+                });
+                $('#search_box').keypress(function(event){
+                    if(event.which===13)
+                        fun_search();
+                });
+                $(document).ready(function() {
+                    $("#back2Top").click(function(event) {
+                        event.preventDefault();
+                        $("html, body").animate({ scrollTop: 0 }, "slow");
+                        return false;
+                    });
 
-            //     // $('html, body').animate({
-            //     //     scrollTop: $("#elementtoScrollToID").offset().top
-            //     // }, 2000);
-            // });
+                });
+            });
         </script>
-        <div class="nav-bar" id="myTopnav">
-            <a></a>
-            <a href="#contact">Contact</a>
-            <a href="#our_team">Our Team</a>
-            <a href="#about">About</a>
-            <a href="#home" class="active">Home</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="material-icons">menu</i>
+        <div class="nav-bar">
+            <!-- <a href="landing" style="float: left;text-decoration:none;font-size:15px;color:white;padding:">Halls</a> -->
+            <ul id="myTopnav">
+                <a></a>
+                <a class="page-scroll" href="#contact">Contact</a>
+                <a class="page-scroll" href="#our_team">Our Team</a>
+                <a class="page-scroll" href="#about">About</a>
+                <a class="page-scroll" href="#home" class="active">Home</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="material-icons">menu</i>
             </a>
+            </ul>
         </div>  
         <div id="home">
             <div class="container">
@@ -43,12 +100,14 @@
                     <img class="slide" src="images/slide3.jpg">
                     <figcaption class="slide-caption">
                         <div class="search-box" style="height: 45px">
-                            <input class="search-input" type="text" style="margin-left: 15px;margin-top: 2px" placeholder="Search By City Name">
-                            <a class="search-btn" href="#">
+                            <input class="search-input" id="search_box" type="text" style="margin-left: 15px;margin-top: 2px" placeholder="Search By City Name">
+                            <a class="search-btn" id="search" onclick="fun_search()" style="cursor: pointer">
                                 <i class="material-icons">search</i>
                             </a>
                         </div>
-                        <p id="welcome" style="position: absolute;top: 60%;left: 50%;transform: translate(-50%,-50%);font-size: 55px">Welcome</p>
+                        <p align="center" id="welcome" style="position: absolute;left: 50%;transform: translate(-50%,-50%);">Welcome</p>
+                        <p align="center" id="instruction">
+                        Halls present you Ac/Non Ac Best out Best of halls on your budgets for Meeting,Wedding,parties etc.Search by city name in above search box to locate best hall's in your city.</p>
                     </figcaption>
                 </div>
                 <hr>    
@@ -60,13 +119,21 @@
                     <center><u><i>About</i></u></center>
                 </h1>
                 <p>
-                    HTML tables were created to provide a straightforward way to mark up structured tabular data and to display that data in a form that is easy for users to read and digest.
+                Welcome to The Halls, we provide you with best services all over the country.
+                Our site helps you to find one the best halls at any location in this country.
+                With best APIs, animations and more different features we provide you this
+                enhanced site where you can easily decide which event where you can
+                organise. Some of the best halls are linked to our site.
+                </p>
+                <p>So, you will get the experience of some of these best halls.With best employees
+                    present at our backend part you can easily ask doubts to them and they’ll
+                    come up with solution every time.            
                 </p>
                 <p>
-                    When HTML was being developed, however, CSS was not widely supported in browsers, so tables were the primary means by which websites were built. They were used for positioning content as well as for building the overall layout of a page. This worked at the time, but it was not what table markup was intended for, and it led to many other associated problems.             
-                </p>
-                <p>
-                    Fortunately, we have come a long way since then. Today tables are used specifically for organizing data (like they should be), and CSS is free to get on with the jobs of positioning and layout.
+                    It is our responsibility to ensure that every customer who visits our site and
+                    book a hall from our site should again return to our site. With best employees
+                    present at our backend part you can easily ask doubts to them and they’ll
+                    come up with solution every time.
                 </p>
             </div>
         </div>
@@ -82,13 +149,13 @@
                         <div class="card_container">
                             <h2>Akshaykumar Deekonda</h2>
                             <p class="title">CEO & Founder</p>
-                            <p>Master in Data Science</p>
+                            <p>Master in Computer Science</p>
                             <p>akshay@gmail.com</p>
-                            <div class="row" style="margin-left: 10%">
+                            <!-- <div class="row" style="margin-left: 10%">
                                 <a href="#"><img src="images/instagram.png" class="insta" style="width: 30px;"></a>
                                 <a href="#"><img src="images/facebook.png" style="width: 30px;margin-left: 20%"></a>
                                 <a href="#"><img src="images/twitter.png" style="width: 30px;margin-left: 20%"></a>
-                            </div>
+                            </div> -->
                             <!-- <p><button class="button">Contact</button></p> -->
                         </div>
                     </div>
@@ -102,11 +169,11 @@
                             <p class="title">Board Director</p>
                             <p>Master in AI</p>
                             <p>mehulgupta@gmail.com</p>
-                            <div class="row" style="margin-left: 10%">
+                            <!-- <div class="row" style="margin-left: 10%">
                                 <a href="#"><img src="images/instagram.png" class="insta" style="width: 30px;"></a>
                                 <a href="#"><img src="images/facebook.png" style="width: 30px;margin-left: 20%"></a>
                                 <a href="#"><img src="images/twitter.png" style="width: 30px;margin-left: 20%"></a>
-                            </div>
+                            </div> -->
                             <!-- <p><button class="button">Contact</button></p> -->
                         </div>
                     </div>
@@ -116,14 +183,14 @@
                     <img src="images/gaurav.JPG" class="images" alt="gaurav kale" style="width:100%;height: 265px;">
                     <div class="card_container">
                         <h2>Gaurav Kale</h2>
-                        <p class="title">Designer</p>
+                        <p class="title">Chief Board Director</p>
                         <p>Masters in Web Technology</p>
                         <p>gaurav.kale@gmail.com</p>
-                        <div class="row" align="center">
+                        <!-- <div class="row" align="center">
                             <a href="#"><img src="images/instagram.png" class="insta" style="width: 30px;margin-left: 5%;"></a>
                             <a href="#"><img src="images/facebook.png" style="width: 30px;margin-left: 20%"></a>
                             <a href="#"><img src="images/twitter.png" style="width: 30px;margin-left: 20%"></a>
-                        </div>
+                        </div> -->
                         <!-- <p><button class="button">Contact</button></p> -->
                     </div>
                     </div>
@@ -134,25 +201,25 @@
             <section class="section2"> 
                 <div class="contactform">
                 <h5>Contact Form</h5>
-                    <form action="#">
+                    <div>
                         <label for="firstname">
                             <i class="cntfrmicn fa fa-users material-icons">account_circle</i>
-                            <input name="firstname" class="form-fields" type="text">
+                            <input name="firstname" id="name" class="form-fields" type="text">
                         </label>
                         <label for="email">
                             <i class="cntfrmicn fa fa-envelope material-icons">email</i>
-                            <input name="email" class="form-fields" type="text">
+                            <input name="email" id="email" class="form-fields" type="text">
                         </label>
                         <label for="contact">
                             <i class="cntfrmicn fa fa-phone material-icons">phone</i>
-                            <input name="contact" class="form-fields" type="text">
+                            <input name="contact" id="phone_no" class="form-fields" type="number">
                         </label>
                         <label for="textarea">
                             <i class="cntfrmicn fa fa-comment material-icons">comment</i>
-                            <textarea class="form-fields" name="textarea" id="" cols="30" rows="10"></textarea>
+                            <textarea class="form-fields" name="textarea" id="comment" cols="30" rows="10"></textarea>
                         </label>
-                        <button class="form-fields button" value="Send" type="submit">Send <i class="fa fa-paper-plane material-icons">send</i></button>
-                    </form>
+                        <button class="form-fields button" value="Send" onClick="return contact();" type="submit">Send <i class="fa fa-paper-plane material-icons">send</i></button>
+                    </div>
                 </div>
                 <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3" class="contmap">
                 <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div><script>(function () {
@@ -169,6 +236,11 @@
                 })();</script><a href="https://1map.com/map-embed?embed_id=60399">1map.com</a></div>
             </section>
         </div>
+
+        <div id="main-footer">
+            <p>Hall of Fame &copy; 2019, All Rights Reserved</p>
+        </div>
+        <a id="back2Top" title="Back to top" href="#">&#10148;</a>
         <script>
             var myIndex = 0;
             carousel();
@@ -193,17 +265,6 @@
                 }
             }
         </script>
+        <script src="main.js"></script>
     </body>
-    <footer class="app-footer">
-        <div>
-            <a>Hall's</a>
-            <span>&copy; 2019</span>
-        </div>
-        <!-- <span>Powered by</span>
-        <a href="#">Hall's</a> -->
-        <div class="ml-auto">&nbsp;
-            <span>Powered by</span>
-            <a href="#">Hall's</a>
-        </div>
-    </footer>
-</html>
+</html>                                                                                         

@@ -17,6 +17,7 @@
     background-color: white;
     margin-bottom: 3%;
     padding: 2%;
+    width: 90%;
 }
 
 .search_result:hover{
@@ -27,6 +28,7 @@
 .result_content{
     display: block;
     margin-left: 5%;
+    width: 90%;
 }
 
 .result_content h1{
@@ -49,7 +51,13 @@
 .checked {
     color: orange;
 }
-  
+
+@media screen and (max-width: 1024px){
+    .search_result{
+        width: 95%;
+    }
+}
+
 @media screen and (max-width: 680px){
     .search_result{
         display: block;

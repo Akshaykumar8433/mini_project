@@ -1,0 +1,371 @@
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Main styling (for the core elements) */
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7em;
+
+}
+
+
+/* Utility classes (featured across the site) */
+.container {
+    margin: auto;
+    max-width: 1000px;
+    overflow: auto;
+    padding: 0 20px;
+}
+
+
+.clearance {
+    clear: both;
+}
+
+
+.text-primary {
+    color: #33FFD8;
+}
+
+
+.lead {
+    font-size: 20px;
+}
+
+
+.button {
+    display: inline-block;
+    font-size: 18px;
+    color: white;
+    background: #333333;
+    padding: 13px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.button-light {
+    background: #f4f4f4;
+    color: #333333;
+}
+
+
+.button:hover {
+    background: #f7c08a;
+    color: #333333;
+}
+
+
+.dark-background {
+    background: #333333;
+    color: white;
+}
+
+
+.light-background {
+    background: #f4f4f4;
+    color: #333333;
+}
+
+
+.primary-background {
+    background: #33FFD8;
+    color: #000000;
+}
+
+
+/* padding classes */
+.padding-vertically-1 {
+    padding: 10px 0;
+}
+
+
+
+.padding-vertically-2 {
+    padding: 20px 0;
+}
+
+
+.padding-vertically-3 {
+    padding: 30px 0;
+}
+
+
+/* Navbar */
+a {
+    color: #333;
+    text-decoration: none;
+
+}
+
+
+h1, h2, h3 {
+    padding-bottom: 20px;
+
+}
+
+
+p {
+    margin: 10px 0;
+}
+
+
+nav {
+    background: #333333;
+    color: white;
+    overflow: auto;
+}
+
+
+nav, a {
+    color: white;
+}
+
+
+nav h1 {
+    float: left;
+    padding-top: 20px;
+}
+
+
+nav ul {
+    float: right;
+    list-style: none;
+}
+
+
+nav ul li {
+    float: left;
+}
+
+
+nav ul li a {
+    display: block;
+    padding: 20px;
+    text-align: center;
+}
+
+
+nav ul li a:hover, nav ul li a.current {
+    background: #444444;
+    color: #33FFD8;
+}
+
+
+
+/* Showcase */
+#showcase {
+    background: url("image4.jpeg") no-repeat center center/cover;
+    height: 600px;
+
+}
+
+
+#showcase a {
+    color: #333333;
+    text-decoration: none;
+}
+
+
+#showcase .content {
+    color: white;
+    text-align: center;
+    padding-top: 170px;
+}
+
+
+#showcase .content h1 {
+    font-size: 60px;
+    line-height: 1.2em;
+
+}
+
+
+#showcase p {
+    padding-bottom: 20px;
+    line-height: 1.7em;
+}
+
+
+#showcase a {
+    color: white;
+}
+
+
+#showcase a:hover {
+    color: #333333;
+}
+
+
+/* Home Info Section */
+#home-info {
+    height: 400px;
+}
+
+
+#home-info .info-image {
+    float: left;
+    width: 50%;
+    background: url("../images/image4.jpeg") no-repeat;
+    min-height: 100%;
+
+}
+
+
+#home-info .info-content {
+    float: right;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    padding: 50px 30px;
+    overflow: hidden;
+}
+
+
+#home-info .info-content p {
+    padding-bottom: 20px;
+}
+
+
+/* Features section */
+.box {
+    float: left;
+    width: 33.3%;
+    height: 350px;
+    padding: 50px;
+    text-align: center;
+}
+
+
+.box i {
+    margin-bottom: 13px;
+}
+
+
+/* Footer */
+#home-footer {
+    text-align: center;
+    background: #444444;
+    color: white;
+    padding: 20px;
+}
+
+
+/* About page styles */
+#about-info .info-right {
+    float: right;
+    width: 50%;
+    min-height: 100%;
+}
+
+#sub{
+    background: #33FFD8;
+    width: 100px;
+    padding: 7px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    border: coral;
+    border-radius: 3px;
+    outline: 0;	
+    position: relative;
+    top: 30px;
+    left: 185px;
+}
+
+
+#about-info .info-right img {
+    width: 70%;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+}
+
+
+#about-info .info-left {
+    float: left;
+    width: 50%;
+    min-height: 100%;
+}
+
+
+#about-info h1 {
+    font-size: 30px;
+}
+
+
+#about-testimonials {
+    height: 100%;
+    background: url("image4.jpeg") no-repeat center center/cover;
+    padding-top: 40px;
+}
+
+
+#about-testimonials h2 {
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: #333333;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+
+.testimonial img {
+    margin: 50px 20px;
+    border-radius: 50%;
+    float: left;
+    width: 100px;
+}
+
+
+#about-testimonials .testimonial {
+    opacity: 0.9;
+    border-radius: 1rem;
+    padding: 20px;
+
+}
+
+
+#about-testimonials .testimonial p {
+    padding: 40px;
+    letter-spacing: 3px
+}
+
+
+/* Contact page */
+#contact-form .form-group {
+    margin-bottom: 20px;
+
+}
+
+
+#contact-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+.form-group textarea, .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddddd;
+}
+
+
+.form-group textarea:focus, .form-group input:focus {
+    outline: none;
+    border-color: #f7c08a;
+}
+
+
+.form-group textarea {
+    height: 200px;
+}
+
